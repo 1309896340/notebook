@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>MainPage</title>
+		<link rel="stylesheet" type="text/css" href="pagestyle.css"/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="leftbox">					<!--目录列表-->
+				<p><a href="#div1">建立STM32工程的基本步骤<a>	</p>
+				<p><a href="#div2">STM32工程的基本结构<a></p>
+			</div>									<!--内容列表-->
+			<div class="rightbox">
+				<div class="container">
+					<div id="div1" class="conbox">
+						<h1>建立STM32工程的基本步骤</h1>
+						<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+						<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+						<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+					</div>
+					
+					<div id="div2" class="conbox">
+						<h1>STM32工程的基本结构</h1>
+						<h2>核心头文件</h2>
+						<p>在STM32项目中存在很多复杂的框架结构，我想对我所了解到的情况做一些整理，主要针对固件库的解析。</p>
+						<p>主要涉及的头文件包括：</p>
+						<p>&emsp;&emsp;stm32f10x.h</p>
+						<p>&emsp;&emsp;core_cm3.h</p>
+						<p>&emsp;&emsp;stm32f10x_conf.h</p>
+						<p>&emsp;&emsp;system_stm32f10x.h</p>
+						<p>特殊格式的文件：</p>
+						<p>&emsp;&emsp;startup_stm32f10x_hd.s</p>
+						<br/>
+						<p>为什么我们要看.h头文件而不是.c源文件？我认为，想要了解STM32的项目结构，就应该从头文件着手，因为头文件规定了函数的原型，通过分析头文件，我们可以知道：</p>
+						<p>&emsp;&emsp;1.这些库函数是什么？</p>
+						<p>&emsp;&emsp;2.这些库函数怎么用？</p>
+						<p>总之，通过了解头文件，我们会更加了解它底层的架构，以及STM32项目之所以这么复杂的原因，最重要的是，它能让我们掌握学习STM32的方法。</p>
+						<br/>
+						<p>stm32f10x.h是我们编写程序的时候唯一需要包含的头文件</p>
+						<p>stm32f10x_conf中包含了其他固件库的头文件，它是在stm32f10x.h被包含的，在stm32f10x.h中，可以查到这样一句预处理：</p>
+						<div class="codestyle">
+						<pre>
+						<code>
+	#ifdef USE_STDPERIPH_DRIVER
+		#include "stm32f10x_conf.h"
+	#endif
+						</code>
+						</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
